@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+:root{
+    --main-color: #085684;
+    --sec-color: #840856;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background-color: #f0f0f0;
+}
+
+header {
+    background-color: var(--main-color);
+    color: #fff;
+    text-align: center;
+    padding: 2rem;
+}
+
+.hero {
+    background-image: url('../img/hero.jpg');
+    background-size: cover;
+    background-blend-mode: multiply;
+    background-color: #777;
+    padding: 7rem;
+    color: #fff;
+}
+
+.barra {
+    background-image: linear-gradient(to bottom right, #42042b, #840856);
+}
+
+.barra .d-flex > * {
+    margin: 1rem;
+    color: #fff;
+    font-weight: 400;
+}
+
+.div-para-scroll {
+    height: 120vh;
+}
+
+footer {
+    background-color: var(--sec-color);
+    color: #fff;
+    text-align: center;
+    padding: 2rem;
+
+}
