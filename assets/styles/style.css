@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+ 
+/* Generales */
 
 :root{
     --main-color: #022112;
@@ -16,14 +18,58 @@ body {
     background-color: #f0f0f0;
 }
 
-header {
-    background-color: var(--main-color);
-    color: #fff;
-    text-align: center;
-    padding: 1rem;
+th, td {
+    padding: 0.5rem;
 }
 
+/* Header */
+
+header {
+    background-color: #fff;
+    color: var(--main-color);
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(122, 122, 122, 0.3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+}
+
+header .col {
+    padding: 0.5rem 0;
+}
+
+/* Carrito */
+
+.submenu #carrito {
+    display: none;
+}
+
+.submenu:hover #carrito{
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    min-width: 500px;;
+    background-color: rgba(255,255,255,0.85);
+    padding: 1rem;   
+}
+
+#lista-carrito {
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+}
+
+#vaciar-carrito {
+    width: 100%;
+}
+
+/* Hero */
+
 .hero {
+    margin-top: 80px;
     background-image: url('../img/hero.jpg');
     background-size: cover;
     background-blend-mode: multiply;
@@ -42,13 +88,13 @@ header {
     font-weight: 400;
 }
 
+/* Galeria */
+
 .card {
     margin-bottom: 2rem;
 }
 
-.div-para-scroll {
-    height: 120vh;
-}
+/* Footer */
 
 footer {
     background-color: var(--sec-color);
