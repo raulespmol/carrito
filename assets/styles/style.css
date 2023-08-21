@@ -3,7 +3,7 @@
 /* Generales */
 
 :root{
-    --main-color: #022112;
+    --main-color: #024021;
     --sec-color: #07743e;
 }
 
@@ -44,19 +44,25 @@ header .col {
 }
 
 /* Carrito */
+.icono-carrito:hover{
+    cursor: pointer;
+}
 
-.submenu #carrito {
+.oculto {
     display: none;
 }
 
-.submenu:hover #carrito{
+.visible{
     display: block;
     position: absolute;
     right: 0;
     top: 100%;
-    min-width: 500px;;
+    min-width: 500px;
+    max-height: 70vh;
+    overflow-y: auto;
     background-color: rgba(255,255,255,0.9);
-    padding: 1rem;   
+    padding: 1rem;
+    border-radius: 0 0 10px 10px;
 }
 
 #lista-carrito {
@@ -79,10 +85,20 @@ header .col {
     font-weight: 900;
 }
 
+.producto {
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.spec {
+    margin: 0;
+    color: #aaa
+}
+
 /* Hero */
 
 .hero {
-    margin-top: 80px;
+    margin-top: 60px;
     background-image: url('../img/hero.jpg');
     background-size: cover;
     background-blend-mode: multiply;
@@ -107,6 +123,29 @@ header .col {
     margin-bottom: 2rem;
 }
 
+.card .card-title {
+    font-size: 1.4rem;
+    color: var(--sec-color);
+}
+
+.card .precio {
+    margin: 0;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--sec-color);
+}
+
+.card .btn {
+    background-color: var(--main-color);
+    color: #fff;
+    border: none;
+}
+
+.card .btn:active {
+    background-color: var(--sec-color);
+    color: #fff;
+}
+
 /* Footer */
 
 footer {
@@ -114,5 +153,4 @@ footer {
     color: #fff;
     text-align: center;
     padding: 2rem;
-
 }

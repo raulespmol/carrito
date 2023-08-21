@@ -1,4 +1,5 @@
 //Variables
+const btnCarrito = document.querySelector('.icono-carrito');
 const carrito = document.querySelector('#carrito');
 const contenidoCarrito = document.querySelector('#lista-carrito tbody');
 const btnVaciar = document.querySelector('#vaciar-carrito');
@@ -12,7 +13,18 @@ function cargarListeners(){
 
     contenidoCarrito.addEventListener('click', eliminarItem); //Eliminar un item del carrito
 
-    btnVaciar.addEventListener('click', vaciarCarrito);
+    btnVaciar.addEventListener('click', e => { //Vaciar Carrito
+        e.preventDefault();
+        itemsEnCarrito = [];
+        limpiarHTML();
+    });
+
+    btnCarrito.addEventListener('click', () => { //Motrar u Ocultar Carrito
+        carrito.classList.toggle('oculto');
+        carrito.classList.toggle('visible');
+    })
+
+    document.addEventListener('click', ocultarCarrito);
 }
 
 //Funciones Principales
@@ -35,9 +47,11 @@ function eliminarItem(e) {
     }
 }
 
-function vaciarCarrito(e) {
-    e.preventDefault();
-    limpiarHTML();
+function ocultarCarrito(e) {
+    if (!carrito.contains(e.target) && e.target !== btnCarrito && !e.target.classList.contains('btn') ){
+        carrito.classList.add('oculto');
+        carrito.classList.remove('visible');
+    }
 }
 
 //Funciones Secundarias
@@ -45,7 +59,8 @@ function leerInfoItem(item){
     infoItem = {
         imagen: item.querySelector('img').src,
         titulo: item.querySelector('.card-title').textContent,
-        precio: item.querySelector('.precio').textContent,
+        spec: item.querySelector('.spec').textContent,
+        precio: parseInt(item.querySelector('.precio').textContent.replace(/\D/g, '')),
         id: item.querySelector('a').getAttribute('data-id'),
         cantidad: 1
     }
@@ -71,13 +86,13 @@ function sumarCantidad() {
 function actualizarCarrito() {
     limpiarHTML();
     itemsEnCarrito.forEach( item => {
-        const {imagen, titulo, precio, cantidad, id} = item;
+        const {imagen, titulo, spec, precio, cantidad, id} = item;
         const row = document.createElement('tr');
         row.innerHTML = `
         <td> <img src="${imagen}" width="100"> </td>
-        <td> <p>${titulo}</p> </td>
-        <td> <p>${precio}</p> </td>
+        <td> <p class="producto">${titulo}</p> <p class="spec">${spec}</p> </td>
         <td> <p>${cantidad}</p> </td>
+        <td> <p>$${precio*cantidad}</p> </td>
         <td> <a href="#" class="eliminar-item" data-id="${id}">X</a> </td>
         `;
         contenidoCarrito.appendChild(row)
